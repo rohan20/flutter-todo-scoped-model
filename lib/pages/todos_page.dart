@@ -6,16 +6,33 @@ class TodosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildTodos(),
+      body: _buildTodosPage(),
     );
   }
 
-  _buildTodos() {
+  _buildTodosPage() {
     return ScopedModel<Todos>(
       model: Todos(),
-      child: Container(
-        color: Colors.yellow,
-      ),
+      child: _buildTodosContent(),
+    );
+  }
+
+  _buildTodosContent() {
+    return ScopedModelDescendant<Todos>(
+      builder: (context, child, model) {
+        return ListView.builder(
+          itemCount: model.todosCount,
+          itemBuilder: (context, index) {
+            return _buildTodoItem(model, index);
+          },
+        );
+      },
+    );
+  }
+
+  _buildTodoItem(Todos model, int index) {
+    return ListTile(
+      title: Text(model.todos[index].title),
     );
   }
 }
