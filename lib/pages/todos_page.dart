@@ -6,7 +6,17 @@ class TodosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Todo Scoped Model"),
+      ),
       body: _buildTodosPage(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 
