@@ -7,6 +7,8 @@ class Todos extends Model {
 
   List<ToDo> get todos => _todosList;
 
+  int get todosCount => _todosList.length;
+
   void addTodo(ToDo todo, {int position = 0}) {
     _todosList.insert(position, todo);
     notifyListeners();
