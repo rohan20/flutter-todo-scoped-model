@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3e973f4-14b4-41d1-8159-a328e58fff42" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/widget/todo_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/todos_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/todos_page.dart" afterDir="false" />
-    </list>
+    <list default="true" id="b3e973f4-14b4-41d1-8159-a328e58fff42" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +15,8 @@
       <file leaf-file-name="todo_widget.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/widget/todo_widget.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+            <state relative-caret-position="543">
+              <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -59,10 +56,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="1440" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="2563" />
     <option name="y" value="-95" />
-    <option name="width" value="1119" />
+    <option name="width" value="797" />
     <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -327,8 +324,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/widget/todo_widget.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        <state relative-caret-position="543">
+          <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
