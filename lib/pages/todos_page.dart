@@ -1,15 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_scoped_model/model/to_do.dart';
 import 'package:flutter_todo_scoped_model/model/todos.dart';
+import 'package:flutter_todo_scoped_model/widget/todo_dialog.dart';
 import 'package:flutter_todo_scoped_model/widget/todo_widget.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class TodosPage extends StatelessWidget {
   Todos model;
   BuildContext context;
-  TextEditingController titleTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,54 +49,6 @@ class TodosPage extends StatelessWidget {
     );
   }
 
-  Future<Null> _buildDialogForNewTodo() async {
-    await showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          contentPadding: const EdgeInsets.all(12.0),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              _buildDialogInputField(),
-              _buildDialogButtons(),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  _buildAlertDialogCancelButton() {
-    return Expanded(
-      child: RaisedButton(
-          color: Colors.white,
-          child: Text("Cancel"),
-          textColor: Colors.red,
-          onPressed: () {
-            titleTextController.clear();
-            Navigator.of(context).pop();
-          }),
-    );
-  }
-
-  _buildAlertDialogAddButton() {
-    return Expanded(
-      child: RaisedButton(
-          color: Colors.white,
-          child: Text("Add"),
-          textColor: Colors.green,
-          onPressed: () {
-            if (titleTextController.text.isNotEmpty) {
-              model.addTodo(ToDo(titleTextController.text));
-            }
-            titleTextController.clear();
-
-            Navigator.of(context).pop();
-          }),
-    );
-  }
-
   _buildPlaceholderText() {
     return Container(
       margin: const EdgeInsets.all(
@@ -113,31 +64,12 @@ class TodosPage extends StatelessWidget {
     );
   }
 
-  _buildDialogInputField() {
-    return TextField(
-      autofocus: true,
-      maxLines: 1,
-      controller: titleTextController,
-      keyboardType: TextInputType.text,
-      decoration: InputDecoration(
-        labelText: "Todo Title",
-        hintText: "Eg: Buy eggs",
-      ),
-    );
-  }
-
-  _buildDialogButtons() {
-    return Container(
-      margin: const EdgeInsets.only(top: 12.0),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          _buildAlertDialogCancelButton(),
-          SizedBox(width: 12.0),
-          _buildAlertDialogAddButton(),
-        ],
-      ),
+  Future<Null> _buildDialogForNewTodo() async {
+    await showDialog(
+      context: context,
+      builder: (context) {
+        return TodoDialog(model);
+      },
     );
   }
 }
