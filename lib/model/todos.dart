@@ -18,6 +18,10 @@ class Todos extends Model {
   Marks to-do as checked if it was unchecked and vice-versa
    */
   void toggleTodo(ToDo todo) {
+    /*
+    Remove to-do from current list because we'll re-add it to the top if it is 
+    marked unchecked or re-add it to the bottom if it is marked as checked
+     */
     removeTodo(todo);
 
     if (_checkedTodos.contains(todo)) {
