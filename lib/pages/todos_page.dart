@@ -60,21 +60,11 @@ class TodosPage extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         color: isChecked ? Colors.green[100] : null,
         child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            Flexible(
-              flex: 1,
-              child: Text(
-                todo.title,
-                style: Theme.of(context).textTheme.headline,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            Icon(
-              isChecked ? Icons.done : null,
-              color: Colors.white,
-              size: 40.0,
-            )
+            _buildTodoItemText(todo),
+            _buildTodoItemIcon(todo),
           ],
         ),
       ),
@@ -90,28 +80,8 @@ class TodosPage extends StatelessWidget {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              TextField(
-                autofocus: true,
-                maxLines: 1,
-                controller: titleTextController,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  labelText: "Todo Title",
-                  hintText: "Eg: Buy eggs",
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 12.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    _buildAlertDialogCancelButton(),
-                    SizedBox(width: 12.0),
-                    _buildAlertDialogAddButton(),
-                  ],
-                ),
-              ),
+              _buildDialogInputField(),
+              _buildDialogButtons(),
             ],
           ),
         );
@@ -160,6 +130,55 @@ class TodosPage extends StatelessWidget {
           style: Theme.of(context).textTheme.headline,
           textAlign: TextAlign.center,
         ),
+      ),
+    );
+  }
+
+  _buildTodoItemText(ToDo todo) {
+    return Flexible(
+      fit: FlexFit.tight,
+      flex: 1,
+      child: Text(
+        todo.title,
+        style: Theme.of(context).textTheme.headline,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+    );
+  }
+
+  _buildTodoItemIcon(ToDo todo) {
+    return Icon(
+      model.isCheckedTodo(todo) ? Icons.done : null,
+      color: Colors.white,
+      size: 40.0,
+    );
+  }
+
+  _buildDialogInputField() {
+    return TextField(
+      autofocus: true,
+      maxLines: 1,
+      controller: titleTextController,
+      keyboardType: TextInputType.text,
+      decoration: InputDecoration(
+        labelText: "Todo Title",
+        hintText: "Eg: Buy eggs",
+      ),
+    );
+  }
+
+  _buildDialogButtons() {
+    return Container(
+      margin: const EdgeInsets.only(top: 12.0),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          _buildAlertDialogCancelButton(),
+          SizedBox(width: 12.0),
+          _buildAlertDialogAddButton(),
+        ],
       ),
     );
   }
