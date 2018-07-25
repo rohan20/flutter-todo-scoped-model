@@ -30,7 +30,7 @@ class TodoItem extends StatelessWidget {
           model.toggleTodo(todo);
         },
         child: Container(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
           color: isChecked ? Colors.green[100] : null,
           child: Row(
             mainAxisSize: MainAxisSize.max,
