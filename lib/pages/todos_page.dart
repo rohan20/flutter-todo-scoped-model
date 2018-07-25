@@ -52,20 +52,28 @@ class TodosPage extends StatelessWidget {
   _buildTodoItem(ToDo todo) {
     bool isChecked = model.isCheckedTodo(todo);
 
-    return InkWell(
-      onTap: () {
-        model.toggleTodo(todo);
-      },
-      child: Container(
-        padding: const EdgeInsets.all(12.0),
-        color: isChecked ? Colors.green[100] : null,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            _buildTodoItemText(todo),
-            _buildTodoItemIcon(todo),
-          ],
+    return Dismissible(
+      key: Key(todo.id.toString()),
+      background: Container(
+        color: Colors.red[300],
+      ),
+      direction: DismissDirection.endToStart,
+      onDismissed: (direction) => model.removeTodo(todo),
+      child: InkWell(
+        onTap: () {
+          model.toggleTodo(todo);
+        },
+        child: Container(
+          padding: const EdgeInsets.all(12.0),
+          color: isChecked ? Colors.green[100] : null,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              _buildTodoItemText(todo),
+              _buildTodoItemIcon(todo),
+            ],
+          ),
         ),
       ),
     );
