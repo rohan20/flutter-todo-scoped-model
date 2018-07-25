@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_scoped_model/model/todos.dart';
+import 'package:flutter_todo_scoped_model/scoped_model/todos.dart';
 import 'package:flutter_todo_scoped_model/widget/todo_dialog.dart';
 import 'package:flutter_todo_scoped_model/widget/todo_widget.dart';
 import 'package:scoped_model/scoped_model.dart';

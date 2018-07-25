@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_scoped_model/model/to_do.dart';
-import 'package:flutter_todo_scoped_model/model/todos.dart';
+import 'package:flutter_todo_scoped_model/scoped_model/todos.dart';
 
 class TodoDialog extends StatelessWidget {
   BuildContext context;
