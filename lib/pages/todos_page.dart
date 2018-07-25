@@ -57,24 +57,25 @@ class TodosPage extends StatelessWidget {
         model.toggleTodo(todo);
       },
       child: Container(
+        padding: const EdgeInsets.all(12.0),
         color: isChecked ? Colors.green[100] : null,
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              Text(
+        child: Row(
+          children: <Widget>[
+            Flexible(
+              flex: 1,
+              child: Text(
                 todo.title,
                 style: Theme.of(context).textTheme.headline,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-              Icon(
-                isChecked ? Icons.done : null,
-                color: Colors.white,
-                size: 40.0,
-              )
-            ],
-          ),
+            ),
+            Icon(
+              isChecked ? Icons.done : null,
+              color: Colors.white,
+              size: 40.0,
+            )
+          ],
         ),
       ),
     );
