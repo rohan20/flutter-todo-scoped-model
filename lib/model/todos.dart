@@ -43,4 +43,8 @@ class Todos extends Model {
     _todosList.remove(todo);
     notifyListeners();
   }
+
+  bool isCheckedTodo(ToDo todo) {
+    return _checkedTodos.contains(todo);
+  }
 }

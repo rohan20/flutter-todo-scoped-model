@@ -44,20 +44,39 @@ class TodosPage extends StatelessWidget {
     return ListView.builder(
       itemCount: model.todosCount,
       itemBuilder: (context, index) {
-        return _buildTodoItem(index);
+        return _buildTodoItem(model.todos[index]);
       },
     );
   }
 
-  _buildTodoItem(int index) {
-    return ListTile(
-      title: Text(
-        model.todos[index].title,
-        style: Theme.of(context).textTheme.headline,
-      ),
+  _buildTodoItem(ToDo todo) {
+    bool isChecked = model.isCheckedTodo(todo);
+
+    return InkWell(
       onTap: () {
-          model.markTodoAsChecked(todo)
+        model.toggleTodo(todo);
       },
+      child: Container(
+        color: isChecked ? Colors.green[100] : null,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Text(
+                todo.title,
+                style: Theme.of(context).textTheme.headline,
+              ),
+              Icon(
+                isChecked ? Icons.done : null,
+                color: Colors.white,
+                size: 40.0,
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 
