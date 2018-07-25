@@ -21,28 +21,22 @@ class Todos extends Model {
     removeTodo(todo);
 
     if (_checkedTodos.contains(todo)) {
-      _todosList.insert(0, todo);
-      _checkedTodos.remove(todo);
+      _markTodoAsUnchecked(todo);
     } else {
-      _todosList.insert(_todosList.length, todo);
-      _checkedTodos.add(todo);
+      _markTodoAsChecked(todo);
     }
 
     notifyListeners();
   }
 
-  void markTodoAsChecked(ToDo todo) {
-    removeTodo(todo);
+  void _markTodoAsChecked(ToDo todo) {
     _todosList.insert(_todosList.length, todo);
     _checkedTodos.add(todo);
-    notifyListeners();
   }
 
-  void markTodoAsUnchecked(ToDo todo) {
-    removeTodo(todo);
+  void _markTodoAsUnchecked(ToDo todo) {
     _todosList.insert(0, todo);
     _checkedTodos.remove(todo);
-    notifyListeners();
   }
 
   void removeTodo(ToDo todo) {

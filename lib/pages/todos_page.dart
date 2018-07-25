@@ -6,7 +6,6 @@ import 'package:flutter_todo_scoped_model/model/todos.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class TodosPage extends StatelessWidget {
-
   Todos model;
   BuildContext context;
   TextEditingController titleTextController = TextEditingController();
@@ -15,7 +14,6 @@ class TodosPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScopedModelDescendant<Todos>(
       builder: (context, child, todosModel) {
-
         this.context = context;
         this.model = todosModel;
 
@@ -57,6 +55,9 @@ class TodosPage extends StatelessWidget {
         model.todos[index].title,
         style: Theme.of(context).textTheme.headline,
       ),
+      onTap: () {
+          model.markTodoAsChecked(todo)
+      },
     );
   }
 
@@ -105,9 +106,7 @@ class TodosPage extends StatelessWidget {
           child: Text("Cancel"),
           textColor: Colors.red,
           onPressed: () {
-            if (titleTextController.text.isNotEmpty) {}
             titleTextController.clear();
-
             Navigator.of(context).pop();
           }),
     );
