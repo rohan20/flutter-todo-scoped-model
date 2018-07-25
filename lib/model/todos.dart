@@ -14,6 +14,23 @@ class Todos extends Model {
     notifyListeners();
   }
 
+  /*
+  Marks to-do as checked if it was unchecked and vice-versa
+   */
+  void toggleTodo(ToDo todo) {
+    removeTodo(todo);
+
+    if (_checkedTodos.contains(todo)) {
+      _todosList.insert(0, todo);
+      _checkedTodos.remove(todo);
+    } else {
+      _todosList.insert(_todosList.length, todo);
+      _checkedTodos.add(todo);
+    }
+
+    notifyListeners();
+  }
+
   void markTodoAsChecked(ToDo todo) {
     removeTodo(todo);
     _todosList.insert(_todosList.length, todo);
