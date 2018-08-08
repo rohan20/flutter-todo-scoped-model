@@ -13,7 +13,7 @@ A basic todo app built in Flutter which uses [Scoped Model](https://pub.dartlang
 
 In the command terminal, run the following commands:
 
-    $ git clone git@github.com:rohan20/flutter-chat-app.git
+    $ git clone git@github.com:rohan20/flutter-todo-scoped-model.git
     $ cd flutter-chat-app/
     $ flutter run
 
